@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WEDO Market — Coming Soon · Trade Doers on BNB Chain</title>
+<meta name="description" content="The WEDO Market is coming soon: a dedicated hall to list, bid on, and trade WEDO Doers on BNB Chain — priced by the rarity the deck dealt you." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f2d024'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%230b0e0f' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='3.6' fill='%230b0e0f'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0b0e0f; --ink2:#111617; --graphite:#1a2122; --steel:#2b3436;
+    --paper:#efefea; --paper2:#e0e0d8; --ash:#8c9491; --volt:#f2d024; --live:#2fbf71;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ overflow-x:hidden; overflow-x:clip; max-width:100%; }
+  body{
+    background:var(--ink); color:var(--paper);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    background-image:
+      linear-gradient(to right, rgba(43,52,54,.35) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(43,52,54,.35) 1px, transparent 1px);
+    background-size:72px 72px;
+    min-height:100svh; display:flex; flex-direction:column;
+  }
+  .display{ font-family:"Bricolage Grotesque","Arial Black",sans-serif; }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, monospace; }
+  .label{ font-family:"IBM Plex Mono", ui-monospace, monospace; text-transform:uppercase; letter-spacing:.18em; }
+  header{
+    display:flex; align-items:center; gap:12px;
+    padding:14px 16px; border-bottom:1px solid var(--steel);
+    background:rgba(11,14,15,.92); position:sticky; top:0; z-index:10;
+  }
+  .mark{ display:grid; place-items:center; width:36px; height:36px; border-radius:7px; background:var(--volt); color:var(--ink); flex:none; }
+  .brand{ font-size:20px; font-weight:800; letter-spacing:.04em; }
+  header nav{ margin-left:auto; display:flex; gap:10px; align-items:center; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+    padding:10px 16px; border:1px solid var(--steel); color:var(--paper); text-decoration:none;
+    transition:transform .12s ease, background-color .2s, color .2s, border-color .2s;
+  }
+  .btn:active{ transform:scale(.98); }
+  .btn-solid{ background:var(--volt); border-color:var(--volt); color:var(--ink); font-weight:600; }
+  .btn-ghost:hover{ border-color:var(--paper); }
+  main{ width:100%; max-width:760px; margin:0 auto; padding:44px 16px 56px; flex:1; }
+  .kicker{ color:var(--volt); font-size:11px; display:flex; align-items:center; gap:10px; }
+  .kicker .dot{ width:8px; height:8px; border-radius:50%; background:var(--volt); animation:pulse 2.4s ease-out infinite; }
+  @keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(242,208,36,.45);} 70%{ box-shadow:0 0 0 9px rgba(242,208,36,0);} 100%{ box-shadow:0 0 0 0 rgba(242,208,36,0);} }
+  h1{ font-size:clamp(44px, 13.5vw, 96px); line-height:.92; font-weight:800; text-transform:uppercase; letter-spacing:-.01em; margin-top:16px; }
+  h1 .y{ color:var(--volt); }
+  .stamp{
+    display:inline-block; margin-top:22px; padding:8px 14px;
+    border:2px solid var(--volt); color:var(--volt); border-radius:6px;
+    font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:.28em; text-transform:uppercase;
+    transform:rotate(-3deg);
+  }
+  .lede{ margin-top:24px; font-size:17px; line-height:1.65; color:var(--paper2); max-width:56ch; }
+  .lede b{ color:var(--paper); }
+  .cards{ display:grid; gap:12px; margin-top:36px; }
+  @media (min-width:640px){ .cards{ grid-template-columns:repeat(3,1fr); } }
+  .card{ border:1px solid var(--steel); background:var(--ink2); padding:20px; }
+  .card .n{ font-family:"IBM Plex Mono",monospace; color:var(--volt); font-size:12px; }
+  .card h2{ font-family:"Bricolage Grotesque",sans-serif; font-size:20px; font-weight:800; margin-top:10px; line-height:1.15; }
+  .card p{ margin-top:8px; font-size:14px; line-height:1.6; color:var(--paper2); }
+  .strip{ display:flex; gap:8px; margin-top:36px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+  .strip::-webkit-scrollbar{ display:none; }
+  .strip figure{ flex:1 0 104px; border:1px solid var(--steel); background:#000; }
+  .strip img{ width:100%; display:block; }
+  .strip figcaption{ font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ash); padding:8px; text-align:center; }
+  .strip figcaption b{ color:var(--paper); font-weight:500; }
+  .cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
+  .cta .btn{ padding:14px 20px; }
+  .note{ margin-top:18px; font-size:12px; color:var(--ash); }
+  footer{ border-top:1px solid var(--steel); padding:18px 16px calc(18px + env(safe-area-inset-bottom)); }
+  footer .row{ max-width:760px; margin:0 auto; display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center; justify-content:space-between; }
+  footer a{ color:var(--ash); text-decoration:none; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+  footer a:hover{ color:var(--volt); }
+  @media (prefers-reduced-motion: reduce){ .kicker .dot{ animation:none; } }
+</style>
+</head>
+<body>
+<header>
+  <a href="/" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">
+    <span class="mark">
+      <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="16" cy="16" r="4" fill="currentColor"/></svg>
+    </span>
+    <span class="brand display">WEDO</span>
+  </a>
+  <nav>
+    <a class="btn btn-ghost" href="https://x.com/wedowtf" target="_blank" rel="noreferrer" aria-label="WEDO on X — @wedowtf">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+      <span style="letter-spacing:.16em">@wedowtf</span>
+    </a>
+    <a class="btn btn-solid" href="/#mint"><span>Mint</span></a>
+  </nav>
+</header>
+
+<main>
+  <p class="kicker label"><span class="dot"></span> WEDO · Secondary market</p>
+  <h1 class="display">The Doer<br /><span class="y">Market</span></h1>
+  <span class="stamp">Coming soon</span>
+
+  <p class="lede">When the mint settles, Doers change hands here. A dedicated hall to <b>list, bid on, and trade WEDO Doers</b> on BNB Chain — every price anchored to the rarity the deck dealt: <b>4,300 Common, 33 Mythic</b>, and nothing in between left to chance.</p>
+
+  <div class="cards">
+    <article class="card">
+      <p class="n">01</p>
+      <h2>Trade the draw</h2>
+      <p>Buy and sell Doers peer-to-peer, settled on BNB Chain. The draw was fair; the market decides what it is worth.</p>
+    </article>
+    <article class="card">
+      <p class="n">02</p>
+      <h2>Rarity is the price tag</h2>
+      <p>Floors form per tier — Common, Rare, Epic, Legendary, Mythic — with the deck's published odds behind every listing.</p>
+    </article>
+    <article class="card">
+      <p class="n">03</p>
+      <h2>Announced on X first</h2>
+      <p>The opening date drops on <b style="color:var(--paper)">@wedowtf</b> before it appears anywhere else. Follow now, trade first.</p>
+    </article>
+  </div>
+
+  <div class="strip" aria-label="WEDO rarity tiers">
+    <figure><img src="/img/m/common.webp" alt="Common Doer" loading="lazy" decoding="async" /><figcaption><b>Common</b> · 4,300</figcaption></figure>
+    <figure><img src="/img/m/rare.webp" alt="Rare Doer" loading="lazy" decoding="async" /><figcaption><b>Rare</b> · 1,667</figcaption></figure>
+    <figure><img src="/img/m/epic.webp" alt="Epic Doer" loading="lazy" decoding="async" /><figcaption><b>Epic</b> · 533</figcaption></figure>
+    <figure><img src="/img/m/legendary.webp" alt="Legendary Doer" loading="lazy" decoding="async" /><figcaption><b>Legendary</b> · 133</figcaption></figure>
+    <figure><img src="/img/m/mythic.webp" alt="Mythic Doer" loading="lazy" decoding="async" /><figcaption><b>Mythic</b> · 33</figcaption></figure>
+  </div>
+
+  <div class="cta">
+    <a class="btn btn-solid" href="/#mint"><span>Mint a Doer first</span></a>
+    <a class="btn btn-ghost" href="https://x.com/wedowtf" target="_blank" rel="noreferrer"><span>Follow @wedowtf</span></a>
+  </div>
+  <p class="note label">No trading yet — minting happens only through your Binance Agent.</p>
+</main>
+
+<footer>
+  <div class="row">
+    <a href="/">← Back to wedo.wtf</a>
+    <a href="/wedo-skill.md">Agent skill file</a>
+    <span class="label" style="color:var(--ash);font-size:10px">© 2026 WEDO · BNB Smart Chain</span>
+  </div>
+</footer>
+</body>
+</html>

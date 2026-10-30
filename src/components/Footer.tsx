@@ -18,6 +18,7 @@ export default function Footer() {
           </nav>
           <div className="flex flex-col gap-2">
             <a className="label text-[11px] text-ash hover:text-volt transition-colors" href={CONFIG.links.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a className="label text-[11px] text-ash hover:text-volt transition-colors" href={CONFIG.links.x} target="_blank" rel="noreferrer">X — @wedowtf ↗</a>
             <a className="label text-[11px] text-ash hover:text-volt transition-colors" href="/wedo-skill.md" target="_blank" rel="noreferrer">Agent skill file ↗</a>
             <a className="label text-[11px] text-ash hover:text-volt transition-colors" href="/deck.json" target="_blank" rel="noreferrer">The deck (JSON) ↗</a>
           </div>

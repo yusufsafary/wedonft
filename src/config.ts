@@ -71,6 +71,7 @@ export const CONFIG = {
 
   links: {
     github: "https://github.com/yusufsafary/wedonft",
+    x: "https://x.com/wedowtf",
     bscscan: "",
   },
 } as const;

@@ -122,7 +122,7 @@ export default function Hero() {
             ) : null}
             <div className="mt-5 flex flex-wrap gap-3">
               <a href="#mint" className="btn btn-solid"><span>Mint through your agent</span></a>
-              <a href="#deck" className="btn btn-ghost"><span>Audit the deck</span></a>
+              <a href="/guide/#deck" className="btn btn-ghost"><span>Audit the deck</span></a>
             </div>
           </div>
         </div>

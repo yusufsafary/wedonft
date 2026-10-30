@@ -63,7 +63,7 @@ export const CONFIG = {
 
   contract: {
     /** Kosongkan sampai kontrak di-deploy. Alamat prediksi CREATE2 di bawah. */
-    address: "",
+    address: "0x745d7a3b46E704e7A9D79AE1C3B049Da8f335D79",
     predicted: "0x745d7a3b46E704e7A9D79AE1C3B049Da8f335D79",
     standard: "BEP-721 (ERC-721)",
     audited: false,

@@ -29,11 +29,11 @@ export default function Gate() {
 
   return (
     <section id="gate" className="relative">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-10 md:py-24">
         <SectionHead index="05 / The Gate" title="One gate: the Agent ID" sub="There is no whitelist and no application form. The contract checks one thing, on-chain, at the moment of minting: does the calling Binance Agent wallet hold a verified SPACE ID Agent ID?" />
         <div className="grid lg:grid-cols-2 gap-4">
           <Reveal>
-            <div className="border border-steel/70 bg-ink2/60 p-6 h-full">
+            <div className="border border-steel/70 bg-ink2/60 p-5 md:p-6 h-full">
               <p className="label text-[11px] text-ash mb-4">How the gate works</p>
               <ol className="space-y-4 text-paper2/90">
                 <li><span className="mono text-volt mr-3">01</span>Your Binance Agent wallet holds a SPACE ID Agent ID (a free claim inside the Binance App).</li>
@@ -44,7 +44,7 @@ export default function Gate() {
             </div>
           </Reveal>
           <Reveal delay={90}>
-            <div className="border border-steel/70 bg-ink2/60 p-6 h-full">
+            <div className="border border-steel/70 bg-ink2/60 p-5 md:p-6 h-full">
               <p className="label text-[11px] text-ash mb-4">Check a wallet</p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <input className="field flex-1" placeholder="0x… wallet address" value={addr} onChange={(e) => setAddr(e.target.value)} spellCheck={false} />

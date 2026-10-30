@@ -28,7 +28,7 @@ export default function SpecSheet() {
             </div>
             <dl className="grid md:grid-cols-2">
               {rows.map(([k, v], i) => (
-                <div key={k} className={`flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 px-5 py-3.5 ${i % 2 === 0 ? "md:border-r" : ""} border-b border-steel/40`}>
+                <div key={k} className={`flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 px-4 py-3 md:px-5 ${i % 2 === 0 ? "md:border-r" : ""} border-b border-steel/40`}>
                   <dt className="label text-[11px] text-ash shrink-0">{k}</dt>
                   <dd className="mono text-[13px] text-left sm:text-right text-paper break-all">{v}</dd>
                 </div>

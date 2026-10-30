@@ -455,3 +455,7 @@ body {
   overflow-x: clip;
   max-width: 100%;
 }
+
+.btn-solid {
+  box-shadow: 0 0 26px rgba(242, 208, 36, 0.22);
+}

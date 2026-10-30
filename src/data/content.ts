@@ -4,6 +4,7 @@ import { CONFIG } from "@/config";
 /*  TICKER                                                             */
 /* ------------------------------------------------------------------ */
 export const TICKER_ITEMS = [
+  `MINT LIVE — VIA BINANCE AGENT`,
   `FREE MINT`,
   `GACHA RARITY — REVEALED AT MINT`,
   `TOTAL SUPPLY ${CONFIG.supply.total.toLocaleString("en-US")}`,

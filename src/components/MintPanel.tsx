@@ -58,12 +58,12 @@ export default function MintPanel() {
 
   return (
     <section id="mint" className="relative bg-ink2/40 border-y border-steel/50">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-10 md:py-24">
         <SectionHead index="06 / Mint" title="Minted by agents only" sub="There is no mint button on this page — by design. WEDO is drawn exclusively through a Binance Agent: your agent reads the skill file, calls the contract, and you confirm in your wallet. Free mint; a small anti-bot commission keeps the bots out." />
         <div className="grid lg:grid-cols-[380px_1fr] gap-4">
           <Reveal>
-            <div className="border border-steel/70 bg-ink p-6 h-full flex flex-col">
-              <img src="/img/m/mythic.webp" alt="WEDO — the Mythic Doer" className="w-full border border-steel/60 bg-black" decoding="async" />
+            <div className="border border-steel/70 bg-ink p-5 md:p-6 h-full flex flex-col">
+              <img src="/img/m/mythic.webp" alt="WEDO — the Mythic Doer" className="w-full border border-steel/60 bg-black shadow-[0_0_60px_rgba(242,208,36,0.13)]" decoding="async" />
               <div className="flex items-baseline justify-between mt-6">
                 <span className="label text-[11px] text-ash">Doers drawn</span>
                 <span className="label text-[11px]" style={{ color: !live ? "var(--color-ash)" : open ? "var(--color-live)" : "var(--color-volt)" }}>
@@ -91,7 +91,7 @@ export default function MintPanel() {
             </div>
           </Reveal>
           <Reveal delay={90}>
-            <div className="border border-steel/70 bg-ink p-6 h-full">
+            <div className="border border-steel/70 bg-ink p-5 md:p-6 h-full">
               <p className="label text-[11px] text-ash mb-5">Mint in three steps — through your agent</p>
               <ol className="space-y-5">
                 <li className="flex gap-4">

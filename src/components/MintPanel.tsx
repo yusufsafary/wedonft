@@ -63,7 +63,7 @@ export default function MintPanel() {
         <div className="grid lg:grid-cols-[380px_1fr] gap-4">
           <Reveal>
             <div className="border border-steel/70 bg-ink p-6 h-full flex flex-col">
-              <img src="/img/mythic.webp" alt="WEDO — the Mythic Doer" className="w-full border border-steel/60 bg-black" />
+              <img src="/img/m/mythic.webp" alt="WEDO — the Mythic Doer" className="w-full border border-steel/60 bg-black" decoding="async" />
               <div className="flex items-baseline justify-between mt-6">
                 <span className="label text-[11px] text-ash">Doers drawn</span>
                 <span className="label text-[11px]" style={{ color: !live ? "var(--color-ash)" : open ? "var(--color-live)" : "var(--color-volt)" }}>

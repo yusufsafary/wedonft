@@ -42,7 +42,7 @@ export default function Hero() {
             <div className="mt-8 grid grid-cols-5 gap-2 max-w-xl">
               {TIERS.map((t) => (
                 <figure key={t.name} className="border border-steel/60 bg-black">
-                  <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-full block" loading="lazy" />
+                  <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-full block" loading="lazy" decoding="async" />
                   <figcaption className="label text-[9px] text-ash text-center py-1.5">{t.name} · {t.odds.replace("1 in ", "1/")}</figcaption>
                 </figure>
               ))}

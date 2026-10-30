@@ -20,7 +20,7 @@ export default function Tiers() {
             <Reveal key={t.numeral} delay={i * 70}>
               <article className="h-full border border-steel/70 bg-ink flex flex-col relative overflow-hidden">
                 <span className="absolute inset-x-0 top-0 h-[3px] z-10" style={{ background: HUE[t.hue] }} />
-                <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-full block bg-black" loading="lazy" />
+                <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-full block bg-black" loading="lazy" decoding="async" />
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-baseline justify-between">
                     <span className="serif-it text-3xl" style={{ color: HUE[t.hue] }}>{t.numeral}</span>

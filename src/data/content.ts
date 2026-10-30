@@ -51,7 +51,7 @@ export const TIERS: Tier[] = [
     count: 4300,
     odds: "1 in 1.6",
     hue: "paper",
-    img: "/img/common.webp",
+    img: "/img/m/common.webp",
     blurb:
       "The plain Doer. Grey line, no gear, no glow — the worker before anything happens. Most draws land here, and every collection needs its backbone.",
     trait: "Ash line · no gear",
@@ -62,7 +62,7 @@ export const TIERS: Tier[] = [
     count: 1667,
     odds: "1 in 4",
     hue: "live",
-    img: "/img/rare.webp",
+    img: "/img/m/rare.webp",
     blurb:
       "A teal cap and a ring of light underfoot. The first step up from the line — one draw in four, and the tier where the deck starts to feel generous.",
     trait: "Teal cap · glow ring",
@@ -73,7 +73,7 @@ export const TIERS: Tier[] = [
     count: 533,
     odds: "1 in 12.5",
     hue: "cobalt",
-    img: "/img/epic.webp",
+    img: "/img/m/epic.webp",
     blurb:
       "Tools on its back and a violet core in its chest. The Doer who shows up ready — eight percent of the deck, and it looks like it.",
     trait: "Tool pack · violet core",
@@ -84,7 +84,7 @@ export const TIERS: Tier[] = [
     count: 133,
     odds: "1 in 50",
     hue: "volt",
-    img: "/img/legendary.webp",
+    img: "/img/m/legendary.webp",
     blurb:
       "Crowned, haloed, drawn in gold. One hundred thirty-three in the whole deck — pull one and the whole wallet knows.",
     trait: "Crown · gold halo",
@@ -95,7 +95,7 @@ export const TIERS: Tier[] = [
     count: 33,
     odds: "1 in 202",
     hue: "oxide",
-    img: "/img/mythic.webp",
+    img: "/img/m/mythic.webp",
     blurb:
       "Full regalia, wings of light, gold on crimson. Thirty-three exist. The deck does not care who you are — that is the entire point.",
     trait: "Regalia · wings of light",

@@ -73,7 +73,7 @@ export default function Deck() {
                   <p className="label text-[11px] text-oxide">Enter a whole token number between 1 and {num(CONFIG.supply.total)}.</p>
                 ) : done && tier ? (
                   <div className="flex items-center gap-4">
-                    <img src={tier.img} alt={`WEDO ${tier.name} Doer`} className="size-16 border border-steel/60 bg-black" />
+                    <img src={tier.img} alt={`WEDO ${tier.name} Doer`} className="size-16 border border-steel/60 bg-black" decoding="async" />
                     <div>
                       <p className="display text-xl font-bold">WEDO #{done.id} — <span className="text-volt">{tier.name}</span></p>
                       <p className="label text-[10px] text-ash mt-1">{num(tier.count)} in the deck · {tier.odds} · the deck answers for minted and unminted tokens alike</p>

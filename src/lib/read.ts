@@ -11,7 +11,7 @@ export const SEL = {
   deckHash: "0x8830dea2",
 } as const;
 
-const RPCS = [CONFIG.network.rpcUrl, "https://bsc-dataseed.binance.org/", "https://bsc-dataseed-public.bnbchain.org/"];
+const RPCS = ["https://bsc-dataseed-public.bnbchain.org/", "https://bsc-rpc.publicnode.com/", "https://bsc-dataseed.bnbchain.org/", CONFIG.network.rpcUrl];
 
 /** eth_call read-only lewat RPC publik; null kalau semua RPC gagal. */
 export async function readContract(to: string, data: string): Promise<bigint | null> {

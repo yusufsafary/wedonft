@@ -56,7 +56,7 @@ export const CONFIG = {
     shortName: "BSC",
     chainId: 56,
     chainIdHex: "0x38",
-    rpcUrl: "https://bsc-dataseed.binance.org/",
+    rpcUrl: "https://bsc-dataseed-public.bnbchain.org/",
     explorer: "https://bscscan.com",
     currency: { name: "BNB", symbol: "BNB", decimals: 18 },
   },

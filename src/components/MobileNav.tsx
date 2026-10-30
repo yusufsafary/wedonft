@@ -10,25 +10,12 @@ const ITEMS: { id: string; label: string; href?: string; icon: ReactNode }[] = [
     ),
   },
   {
-    id: "tiers",
-    label: "Rarity",
+    id: "mint",
+    label: "Mint",
     icon: (
-      <g fill="currentColor">
-        <rect x="4" y="4" width="7" height="7" rx="1.5" />
-        <rect x="13" y="4" width="7" height="7" rx="1.5" opacity="0.55" />
-        <rect x="4" y="13" width="7" height="7" rx="1.5" opacity="0.55" />
-        <rect x="13" y="13" width="7" height="7" rx="1.5" />
-      </g>
-    ),
-  },
-  {
-    id: "deck",
-    label: "Deck",
-    icon: (
-      <g fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
-        <path d="M12 3.5 21 8.5l-9 5-9-5z" fill="currentColor" stroke="none" />
-        <path d="m4.5 12.5 7.5 4.2 7.5-4.2" opacity="0.6" />
-        <path d="m4.5 16.5 7.5 4.2 7.5-4.2" opacity="0.35" />
+      <g fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12Z" strokeLinejoin="round" />
+        <circle cx="12" cy="12" r="3.1" fill="currentColor" stroke="none" />
       </g>
     ),
   },
@@ -45,19 +32,13 @@ const ITEMS: { id: string; label: string; href?: string; icon: ReactNode }[] = [
     ),
   },
   {
-    id: "gate",
-    label: "Gate",
+    id: "guide",
+    label: "Guide",
+    href: "/guide/",
     icon: (
-      <path d="M12 3 5 5.8v5.4c0 4.5 3 7.7 7 9.3 4-1.6 7-4.8 7-9.3V5.8z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-    ),
-  },
-  {
-    id: "mint",
-    label: "Mint",
-    icon: (
-      <g fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12Z" strokeLinejoin="round" />
-        <circle cx="12" cy="12" r="3.1" fill="currentColor" stroke="none" />
+      <g fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
+        <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.7A1.7 1.7 0 0 0 5 19.7z" />
+        <path d="M5 17.5A1.5 1.5 0 0 1 6.5 16H19v4H6.5A1.5 1.5 0 0 1 5 18.5z" />
       </g>
     ),
   },
@@ -72,7 +53,7 @@ export default function MobileNav() {
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       aria-label="Mobile"
     >
-      <div className="grid grid-cols-6">
+      <div className="grid grid-cols-4">
         {ITEMS.map((it) => (
           <a
             key={it.id}

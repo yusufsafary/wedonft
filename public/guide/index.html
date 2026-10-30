@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<title>WEDO Guide — The Idea, the Rarity, the Deck, the Gate</title>
+<meta name="description" content="The full WEDO guide: how the gacha deck works, the five rarity tiers, the Agent ID gate, the spec sheet, the roadmap and the FAQ. Minting lives on the front page." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f2d024'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%230b0e0f' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='3.6' fill='%230b0e0f'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    color-scheme: dark;
+    --ink:#0b0e0f; --ink2:#111617; --graphite:#1a2122; --steel:#2b3436;
+    --paper:#efefea; --paper2:#e0e0d8; --ash:#8c9491; --volt:#f2d024; --live:#2fbf71;
+    --cobalt:#7d92ff; --oxide:#e2482b;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ overflow-x:hidden; overflow-x:clip; max-width:100%; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--ink); color:var(--paper); font-family:"IBM Plex Sans", system-ui, sans-serif; min-height:100svh; display:flex; flex-direction:column; }
+  [id]{ scroll-margin-top:84px; }
+  .display{ font-family:"Bricolage Grotesque","Arial Black",sans-serif; }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, monospace; }
+  .label{ font-family:"IBM Plex Mono", ui-monospace, monospace; text-transform:uppercase; letter-spacing:.18em; }
+  header{ display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:1px solid var(--steel); background:rgba(11,14,15,.94); position:sticky; top:0; z-index:10; }
+  .mark{ display:grid; place-items:center; width:36px; height:36px; border-radius:7px; background:var(--volt); color:var(--ink); flex:none; }
+  .brand{ font-size:20px; font-weight:800; letter-spacing:.04em; }
+  header nav{ margin-left:auto; display:flex; gap:10px; align-items:center; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; padding:10px 16px; border:1px solid var(--steel); color:var(--paper); text-decoration:none; background:none; cursor:pointer; transition:transform .12s ease, background-color .2s, color .2s, border-color .2s; }
+  .btn:active{ transform:scale(.98); }
+  .btn-solid{ background:var(--volt); border-color:var(--volt); color:var(--ink); font-weight:600; }
+  .btn-ghost:hover{ border-color:var(--paper); }
+  main{ width:100%; max-width:860px; margin:0 auto; padding:44px 16px 64px; flex:1; }
+  .kicker{ color:var(--volt); font-size:11px; display:flex; align-items:center; gap:10px; }
+  .kicker .dot{ width:8px; height:8px; border-radius:50%; background:var(--volt); }
+  h1{ font-size:clamp(44px, 13.5vw, 92px); line-height:.92; font-weight:800; text-transform:uppercase; letter-spacing:-.01em; margin-top:16px; }
+  h1 .y{ color:var(--volt); }
+  .lede{ margin-top:22px; font-size:17px; line-height:1.65; color:var(--paper2); max-width:56ch; }
+  section{ margin-top:64px; }
+  .shead{ display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+  .shead::before{ content:""; width:10px; height:26px; background:var(--volt); flex:none; }
+  .shead h2{ font-size:clamp(26px,6vw,38px); font-weight:800; text-transform:uppercase; line-height:1; }
+  .ssub{ color:var(--ash); font-size:14.5px; line-height:1.6; margin:10px 0 22px; max-width:60ch; }
+  .cards{ display:grid; gap:12px; }
+  @media (min-width:720px){ .cards{ grid-template-columns:repeat(3,1fr); } }
+  .card{ border:1px solid var(--steel); background:var(--ink2); padding:20px; }
+  .card .num{ color:var(--volt); font-size:12px; }
+  .card h3{ font-size:17px; font-weight:600; margin:10px 0 8px; }
+  .card p{ font-size:14px; line-height:1.6; color:var(--paper2); }
+  .card .meta{ margin-top:12px; font-size:10.5px; color:var(--ash); }
+  .tier{ display:flex; gap:14px; border:1px solid var(--steel); background:var(--ink2); padding:14px; align-items:flex-start; margin-bottom:12px; }
+  .tier img{ width:88px; height:88px; object-fit:cover; flex:none; border:1px solid var(--steel); }
+  @media (min-width:720px){ .tier img{ width:120px; height:120px; } }
+  .tier .tname{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .tier .tname b{ font-size:19px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; }
+  .tier .odds{ font-size:11px; color:var(--ash); }
+  .tier p{ font-size:13.5px; line-height:1.6; color:var(--paper2); margin-top:6px; }
+  .tier .trait{ font-size:10.5px; color:var(--ash); margin-top:8px; }
+  .step{ display:flex; gap:14px; padding:16px 0; border-bottom:1px solid rgba(43,52,54,.6); }
+  .step:last-child{ border-bottom:none; }
+  .step .n{ width:30px; height:30px; flex:none; display:grid; place-items:center; border:1px solid var(--steel); font-size:12px; color:var(--volt); }
+  .step b{ font-size:15.5px; }
+  .step .st{ font-size:10.5px; color:var(--ash); margin-left:8px; }
+  .step p{ font-size:14px; line-height:1.6; color:var(--paper2); margin-top:4px; }
+  .hashbox{ border:1px solid var(--steel); background:var(--ink2); padding:16px; margin-top:18px; }
+  .hashbox .mono{ font-size:12px; line-height:1.7; word-break:break-all; color:var(--paper2); }
+  .checker{ border:1px solid var(--steel); background:var(--ink2); padding:20px; margin-top:18px; }
+  .checker h3{ font-size:16px; font-weight:600; }
+  .checker p{ font-size:13.5px; color:var(--ash); line-height:1.6; margin-top:6px; }
+  .row{ display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+  .row input{ flex:1 1 220px; background:var(--ink); border:1px solid var(--steel); color:var(--paper); padding:12px 14px; font-family:"IBM Plex Mono",monospace; font-size:16px; outline:none; }
+  .row input:focus{ border-color:var(--volt); }
+  .result{ margin-top:14px; font-size:14.5px; line-height:1.6; display:none; }
+  .result.show{ display:block; }
+  .spec{ border:1px solid var(--steel); }
+  .spec .r{ display:flex; flex-direction:column; gap:2px; padding:12px 16px; border-bottom:1px solid rgba(43,52,54,.6); }
+  .spec .r:last-child{ border-bottom:none; }
+  @media (min-width:720px){ .spec .r{ flex-direction:row; justify-content:space-between; align-items:baseline; gap:24px; } .spec .v{ text-align:right; } }
+  .spec .k{ font-size:10.5px; color:var(--ash); flex:none; }
+  .spec .v{ font-size:13px; word-break:break-all; }
+  .spec a{ color:var(--volt); text-decoration:none; }
+  .road .item{ display:flex; gap:14px; padding:16px 0; border-bottom:1px solid rgba(43,52,54,.6); }
+  .road .item:last-child{ border-bottom:none; }
+  .road .at{ flex:none; width:104px; font-size:11px; color:var(--ash); padding-top:2px; }
+  .road b{ font-size:15.5px; }
+  .road p{ font-size:14px; line-height:1.6; color:var(--paper2); margin-top:4px; }
+  .badge{ font-size:9.5px; padding:3px 8px; border:1px solid var(--steel); margin-left:8px; vertical-align:2px; }
+  .badge.done{ color:var(--live); border-color:var(--live); }
+  .badge.live{ color:var(--ink); background:var(--volt); border-color:var(--volt); font-weight:600; }
+  .badge.next{ color:var(--ash); }
+  details{ border-bottom:1px solid rgba(43,52,54,.7); padding:16px 0; }
+  details summary{ cursor:pointer; font-size:15.5px; font-weight:600; list-style:none; display:flex; justify-content:space-between; gap:12px; }
+  details summary::-webkit-details-marker{ display:none; }
+  details summary::after{ content:"+"; color:var(--volt); font-family:"IBM Plex Mono",monospace; }
+  details[open ] summary::after{ content:"–"; }
+  details p{ font-size:14px; line-height:1.65; color:var(--paper2); margin-top:10px; max-width:64ch; }
+  footer{ border-top:1px solid var(--steel); padding:26px 16px 40px; text-align:center; color:var(--ash); font-size:12px; line-height:2; }
+  footer a{ color:var(--paper2); text-decoration:none; }
+  footer a:hover{ color:var(--volt); }
+</style>
+</head>
+<body>
+<header>
+  <span class="mark"><svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="16" cy="16" r="4" fill="currentColor"/></svg></span>
+  <span class="brand display">WEDO</span>
+  <nav>
+    <a class="btn btn-ghost" href="/">Home</a>
+    <a class="btn btn-ghost" href="/market/">Market</a>
+    <a class="btn btn-solid" href="/#mint">Mint</a>
+  </nav>
+</header>
+<main>
+  <div class="kicker label"><span class="dot"></span> The Guide</div>
+  <h1 class="display">Know the<br /><span class="y">Draw.</span></h1>
+  <p class="lede">Everything around the mint, on one page — the idea, the five rarity tiers, how the committed deck works, and the one gate every draw must pass. Minting itself lives on the <a href="/#mint" style="color:var(--volt)">front page</a>.</p>
+
+  <section id="idea">
+    <div class="shead"><h2 class="display">The Idea</h2></div>
+    <p class="ssub">Three steps between you and a draw. No browser mint, no whitelist — your Binance Agent does the work.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="num label">Step I</div>
+        <h3>Hold an Agent ID</h3>
+        <p>Minting is gated on-chain: your Binance Agent wallet must hold a SPACE ID Agent ID. No whitelist, no form — claim the Agent ID free in the Binance App and the gate opens.</p>
+        <div class="meta label">Checked on-chain · every mint</div>
+      </div>
+      <div class="card">
+        <div class="num label">Step II</div>
+        <h3>Send your Binance Agent</h3>
+        <p>There is no mint button anywhere. You hand your agent the prompt from the mint section — it reads the skill file, checks the contract, and calls mint() for you.</p>
+        <div class="meta label">Skill file · wedo.wtf/wedo-skill.md</div>
+      </div>
+      <div class="card">
+        <div class="num label">Step III</div>
+        <h3>Draw up to ten</h3>
+        <p>Every mint opens the next slot of the committed deck, and the rarity reveals itself the moment the transaction confirms. Ten draws per wallet, counted for life.</p>
+        <div class="meta label">Max 10 · reveal is instant</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiers">
+    <div class="shead"><h2 class="display">The Rarity</h2></div>
+    <p class="ssub">Five tiers, exact counts, one deck of 6,666. The odds below are the deck itself — not marketing numbers.</p>
+    <div class="tier">
+      <img src="/img/m/common.webp" alt="Common Doer" loading="lazy" />
+      <div>
+        <div class="tname"><b style="color:var(--paper)">Common</b><span class="odds label">4,300 in deck · 1 in 1.6</span></div>
+        <p>The plain Doer. Grey line, no gear, no glow — the worker before anything happens. Most draws land here, and every collection needs its backbone.</p>
+        <div class="trait label">Ash line · no gear</div>
+      </div>
+    </div>
+    <div class="tier">
+      <img src="/img/m/rare.webp" alt="Rare Doer" loading="lazy" />
+      <div>
+        <div class="tname"><b style="color:var(--live)">Rare</b><span class="odds label">1,667 in deck · 1 in 4</span></div>
+        <p>A teal cap and a ring of light underfoot. The first step up from the line — one draw in four, and the tier where the deck starts to feel generous.</p>
+        <div class="trait label">Teal cap · glow ring</div>
+      </div>
+    </div>
+    <div class="tier">
+      <img src="/img/m/epic.webp" alt="Epic Doer" loading="lazy" />
+      <div>
+        <div class="tname"><b style="color:var(--cobalt)">Epic</b><span class="odds label">533 in deck · 1 in 12.5</span></div>
+        <p>Tools on its back and a violet core in its chest. The Doer who shows up ready — eight percent of the deck, and it looks like it.</p>
+        <div class="trait label">Tool pack · violet core</div>
+      </div>
+    </div>
+    <div class="tier">
+      <img src="/img/m/legendary.webp" alt="Legendary Doer" loading="lazy" />
+      <div>
+        <div class="tname"><b style="color:var(--volt)">Legendary</b><span class="odds label">133 in deck · 1 in 50</span></div>
+        <p>Crowned, haloed, drawn in gold. One hundred thirty-three in the whole deck — pull one and the whole wallet knows.</p>
+        <div class="trait label">Crown · gold halo</div>
+      </div>
+    </div>
+    <div class="tier">
+      <img src="/img/m/mythic.webp" alt="Mythic Doer" loading="lazy" />
+      <div>
+        <div class="tname"><b style="color:var(--oxide)">Mythic</b><span class="odds label">33 in deck · 1 in 202</span></div>
+        <p>Full regalia, wings of light, gold on crimson. Thirty-three exist. The deck does not care who you are — that is the entire point.</p>
+        <div class="trait label">Regalia · wings of light</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="deck">
+    <div class="shead"><h2 class="display">The Deck</h2></div>
+    <p class="ssub">A gacha you can audit. The rarity order was fixed before the first mint and can never be touched again.</p>
+    <div class="step"><span class="n mono">1</span><div><b>Shuffled</b><span class="st label">Exact counts</span><p>The deck is built with exact tier counts — 4,300 Common down to 33 Mythic — then shuffled with a secret seed before anything is deployed.</p></div></div>
+    <div class="step"><span class="n mono">2</span><div><b>Committed</b><span class="st label">Hash on-chain</span><p>The shuffled deck is packed into the contract itself, and its keccak256 hash is stored as a public commitment. The order can never be changed after deploy.</p></div></div>
+    <div class="step"><span class="n mono">3</span><div><b>Drawn</b><span class="st label">At mint</span><p>Minting is sequential: token #n opens deck slot #n. Your draw is whatever the committed deck says — nobody picks, nobody rerolls.</p></div></div>
+    <div class="step"><span class="n mono">4</span><div><b>Revealed</b><span class="st label">Instantly</span><p>rarityOf() is readable on-chain by anyone, so your rarity is public the second your mint confirms — in your wallet, on marketplaces, everywhere.</p></div></div>
+    <div class="step"><span class="n mono">5</span><div><b>Audited</b><span class="st label">At sellout</span><p>When the deck sells out, the seed is published. Anyone can rebuild the deck, re-hash it, and check it against the on-chain commitment.</p></div></div>
+    <div class="hashbox">
+      <div class="label" style="font-size:10.5px; color:var(--ash)">Deck commitment (keccak256, stored in the contract)</div>
+      <div class="mono" style="margin-top:8px">0x8323f151aa094a7d4624421543f12cf2e1780a2d20218124d4dd3b8b3fe1f7d3</div>
+    </div>
+    <div class="checker">
+      <h3>Reveal checker</h3>
+      <p>Type any token number and the deck answers — what rarity sits in that slot, and whether it has been drawn yet.</p>
+      <div class="row">
+        <input id="tokenId" type="number" min="1" max="6666" placeholder="Token # — e.g. 27" inputmode="numeric" />
+        <button class="btn btn-solid" id="checkToken" type="button">Check</button>
+      </div>
+      <div class="result" id="tokenResult"></div>
+    </div>
+  </section>
+
+  <section id="gate">
+    <div class="shead"><h2 class="display">The Gate</h2></div>
+    <p class="ssub">One gate: the Agent ID. There is no whitelist and no application form. The contract checks one thing, on-chain, at the moment of minting: does the calling Binance Agent wallet hold a verified SPACE ID Agent ID?</p>
+    <div class="step"><span class="n mono">1</span><div><p>Your Binance Agent wallet holds a SPACE ID Agent ID (a free claim inside the Binance App).</p></div></div>
+    <div class="step"><span class="n mono">2</span><div><p>At mint, the WEDO contract reads the Agent ID registry itself — before price, before supply, before anything.</p></div></div>
+    <div class="step"><span class="n mono">3</span><div><p>No Agent ID, no mint. Calls routed through other contracts are rejected as well — only real Binance Agent wallets draw.</p></div></div>
+    <div class="checker">
+      <h3>Check a wallet</h3>
+      <p>Paste a wallet address to see whether it passes the gate, and how many of its ten draws it has used.</p>
+      <div class="row">
+        <input id="walletAddr" type="text" placeholder="0x…" autocomplete="off" spellcheck="false" />
+        <button class="btn btn-solid" id="checkWallet" type="button">Check</button>
+      </div>
+      <div class="result" id="walletResult"></div>
+    </div>
+  </section>
+
+  <section id="spec">
+    <div class="shead"><h2 class="display">Spec Sheet</h2></div>
+    <p class="ssub">Read before you draw.</p>
+    <div class="spec">
+      <div class="r"><span class="k label">Collection</span><span class="v">WEDO — gacha Doers</span></div>
+      <div class="r"><span class="k label">Total supply</span><span class="v">6,666 Doers · one deck, no restock</span></div>
+      <div class="r"><span class="k label">Max per wallet</span><span class="v">10 draws · lifetime counter</span></div>
+      <div class="r"><span class="k label">Mint price</span><span class="v">Free — anti-bot commission only, confirmed in your Binance Agent wallet</span></div>
+      <div class="r"><span class="k label">Rarity model</span><span class="v">Committed shuffled deck — exact tier counts, drawn in mint order</span></div>
+      <div class="r"><span class="k label">Chain</span><span class="v">BNB Smart Chain · chainId 56</span></div>
+      <div class="r"><span class="k label">Standard</span><span class="v">BEP-721 (ERC-721)</span></div>
+      <div class="r"><span class="k label">Gate</span><span class="v">SPACE ID Agent ID, checked on-chain at every mint</span></div>
+      <div class="r"><span class="k label">Reveal</span><span class="v">Instant at mint — rarityOf() on-chain + metadata</span></div>
+      <div class="r"><span class="k label">Contract</span><span class="v"><a href="https://bscscan.com/address/0x745d7a3b46E704e7A9D79AE1C3B049Da8f335D79" target="_blank" rel="noreferrer">0x745d7a3b46E704e7A9D79AE1C3B049Da8f335D79 ↗</a></span></div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="shead"><h2 class="display">Roadmap</h2></div>
+    <div class="road">
+      <div class="item"><span class="at label">Deck</span><div><b>The deck is committed</b><span class="badge done label">Done</span><p>6,666 slots shuffled with exact tier counts; the keccak256 commitment is published here and written into the contract at deploy.</p></div></div>
+      <div class="item"><span class="at label">Deploy</span><div><b>Contract goes on-chain</b><span class="badge done label">Done</span><p>WedoAgenticPass is deployed on BNB Smart Chain with the deck inside it. Address and BscScan verification are in the spec sheet above.</p></div></div>
+      <div class="item"><span class="at label">Mint</span><div><b>The gate opens</b><span class="badge live label">Live</span><p>Mint is open to every Binance Agent holding a SPACE ID Agent ID. Free mint, ten draws per wallet, rarity revealed at mint.</p></div></div>
+      <div class="item"><span class="at label">3,333 · 50%</span><div><b>Half the deck</b><span class="badge next label">Next</span><p>Half the draws are gone. The remaining Mythic count is public math — the deck does not restock.</p></div></div>
+      <div class="item"><span class="at label">6,666 · 100%</span><div><b>Sold out — seed published</b><span class="badge next label">Next</span><p>The last draw lands, mint closes forever, and the shuffle seed is published so the entire deck can be audited against its commitment.</p></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="shead"><h2 class="display">FAQ</h2></div>
+    <details open><summary>What is WEDO?</summary><p>A collection of 6,666 Doers — one-eyed little workers — on BNB Smart Chain. It is a gacha: every mint draws the next slot of a pre-shuffled rarity deck, and your tier (Common, Rare, Epic, Legendary or Mythic) is revealed the moment your mint confirms.</p></details>
+    <details><summary>Who can mint — and how?</summary><p>Any Binance Agent wallet that holds a SPACE ID Agent ID. There is no browser mint and no whitelist: your agent reads the skill file at wedo.wtf/wedo-skill.md and calls mint() on the contract. This website is read-only — it never connects to your wallet.</p></details>
+    <details><summary>How does the gacha actually work?</summary><p>Before launch, a deck of 6,666 rarity slots is shuffled with exact tier counts — 4,300 Common, 1,667 Rare, 533 Epic, 133 Legendary, 33 Mythic. The deck lives inside the contract, its keccak256 hash is committed on-chain, and mint #n simply opens slot #n. The contract even emits your rarity in the mint event.</p></details>
+    <details><summary>Can the draw be rigged or changed later?</summary><p>No. The deck order is fixed inside the deployed contract and locked to its published hash — changing a single slot would change the hash. After sellout the shuffle seed is published, so anyone can rebuild the deck and verify the commitment themselves.</p></details>
+    <details><summary>Can I predict the next rarity?</summary><p>The deck is public by design, so a determined analyst can study it — that transparency is the fairness guarantee. In practice, minting is sequential, gated by Agent ID and capped at ten per wallet, so sniping a specific slot means out-running every other agent to the exact mint number.</p></details>
+    <details><summary>Why ten per wallet?</summary><p>6,666 divided by ten is 666 full wallets — the cap spreads the deck across hundreds of agents instead of a handful of whales, and it is a lifetime counter in the contract: minting ten and selling them does not reopen your slots.</p></details>
+    <details><summary>What does a mint cost?</summary><p>The NFT is free. The only charge is a small anti-bot commission — a few cents — shown in your Binance Agent wallet before you confirm, plus roughly a cent of BSC gas. The exact commission never appears on this website; it lives in the wallet confirmation, where it belongs.</p></details>
+    <details><summary>Where do I see my rarity?</summary><p>Everywhere, instantly: your wallet, marketplaces reading the metadata, and the reveal checker on this page — type a token number and the deck answers. rarityOf() on the contract returns the same tier to anyone who asks.</p></details>
+    <details><summary>What if the deck sells out?</summary><p>Mint closes permanently at 6,666 — there is no second deck and no restock. The seed is published, the audit opens, and the Doers trade on secondary markets from there.</p></details>
+  </section>
+</main>
+<footer>
+  <div>© 2026 WEDO · WEDO.WTF</div>
+  <div>
+    <a href="/">Home</a> · <a href="/#mint">Mint</a> · <a href="/market/">Market</a> · <a href="/wedo-skill.md">Agent skill file</a> · <a href="/deck.json">The deck (JSON)</a> · <a href="https://x.com/wedowtf" target="_blank" rel="noreferrer">X — @wedowtf</a>
+  </div>
+</footer>
+<script>
+  var CONTRACT = "0x745d7a3b46E704e7A9D79AE1C3B049Da8f335D79";
+  var RPCS = ["https://bsc-dataseed-public.bnbchain.org", "https://bsc-rpc.publicnode.com", "https://bsc-dataseed.bnbchain.org"];
+  var TIERS = [
+    { name: "Common", color: "#efefea" },
+    { name: "Rare", color: "#2fbf71" },
+    { name: "Epic", color: "#7d92ff" },
+    { name: "Legendary", color: "#f2d024" },
+    { name: "Mythic", color: "#e2482b" }
+  ];
+  function ethCall(data, to) {
+    var body = JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_call", params: [{ to: to || CONTRACT, data: data }, "latest"] });
+    var chain = Promise.reject(new Error("start"));
+    RPCS.forEach(function (url) {
+      chain = chain.catch(function () {
+        return fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: body })
+          .then(function (r) { return r.json(); })
+          .then(function (j) { if (!j.result) throw new Error("no result"); return BigInt(j.result); });
+      });
+    });
+    return chain;
+  }
+  var deckCache = null;
+  function getDeck() {
+    if (deckCache) return deckCache;
+    deckCache = fetch("/deck.json").then(function (r) { return r.json(); }).then(function (j) { return j.deck; });
+    return deckCache;
+  }
+  document.getElementById("checkToken").addEventListener("click", function () {
+    var out = document.getElementById("tokenResult");
+    var id = Number(document.getElementById("tokenId").value.trim());
+    out.className = "result show";
+    if (!Number.isInteger(id) || id < 1 || id > 6666) { out.textContent = "Enter a token number between 1 and 6,666."; return; }
+    out.textContent = "Asking the deck…";
+    Promise.all([getDeck(), ethCall("0xa2309ff8").catch(function () { return null; })]).then(function (rs) {
+      var tier = TIERS[Number(rs[0][id - 1])];
+      var minted = rs[1] !== null ? Number(rs[1]) : null;
+      var state = minted === null ? "" : (id <= minted ? " — already drawn." : " — still in the deck, waiting for mint #" + id + ".");
+      out.innerHTML = "Token <b>#" + id + "</b> is a <b style=\"color:" + tier.color + "\">" + tier.name + "</b>" + state;
+    }).catch(function () { out.textContent = "The deck did not answer — try again in a moment."; });
+  });
+  document.getElementById("checkWallet").addEventListener("click", function () {
+    var out = document.getElementById("walletResult");
+    var a = document.getElementById("walletAddr").value.trim();
+    out.className = "result show";
+    if (!/^0x[0-9a-fA-F]{40}$/.test(a)) { out.textContent = "That does not look like a wallet address."; return; }
+    out.textContent = "Checking the gate…";
+    var pad = a.slice(2).toLowerCase().padStart(64, "0");
+    Promise.all([ethCall("0x11213086" + pad), ethCall("0x80f231fb" + pad)]).then(function (rs) {
+      var holds = rs[0] > 0n;
+      var used = Number(rs[1]);
+      out.innerHTML = holds
+        ? "This wallet <b style=\"color:var(--live)\">holds an Agent ID</b> — the gate is open. Draws used: <b>" + used + " / 10</b>."
+        : "This wallet <b style=\"color:var(--oxide)\">does not hold an Agent ID</b> — it cannot mint until it claims one in the Binance App.";
+    }).catch(function () { out.textContent = "The gate did not answer — try again in a moment."; });
+  });
+</script>
+</body>
+</html>

@@ -26,7 +26,7 @@ export default function Hero() {
   const pctMinted = minted !== null ? Math.min(100, (minted / CONFIG.supply.total) * 100) : 0;
   return (
     <section id="top" className="noise gridlines relative overflow-hidden pt-[64px]">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] pt-14 md:pt-24 pb-16">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] pt-10 md:pt-24 pb-12 md:pb-16">
         <div ref={ref} className="reveal-mask is-in">
           <p className="label text-volt mb-5">{CONFIG.network.name} · {CONFIG.contract.standard} · Agent ID only · Free mint · Gacha</p>
           <h1 className="display font-extrabold uppercase leading-[0.88] tracking-tight text-[19vw] sm:text-[15vw] lg:text-[11rem]">
@@ -39,9 +39,9 @@ export default function Hero() {
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <p className="text-lg md:text-xl text-paper2/90 max-w-xl">{CONFIG.lede}</p>
-            <div className="mt-8 grid grid-cols-5 gap-2 max-w-xl">
+            <div className="snap-row mt-8 flex gap-2 overflow-x-auto snap-x snap-mandatory pb-1 md:grid md:grid-cols-5 md:overflow-visible max-w-xl">
               {TIERS.map((t) => (
-                <figure key={t.name} className="border border-steel/60 bg-black">
+                <figure key={t.name} className="border border-steel/60 bg-black min-w-[104px] w-[104px] snap-center md:min-w-0 md:w-auto">
                   <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-full block" loading="lazy" decoding="async" />
                   <figcaption className="label text-[9px] text-ash text-center py-1.5">{t.name} · {t.odds.replace("1 in ", "1/")}</figcaption>
                 </figure>

@@ -33,16 +33,16 @@ export default function Deck() {
 
   return (
     <section id="deck" className="relative">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="03 / The Deck" title="A deck you can audit" sub="No hidden mint-time randomness, no server deciding your fate. The rarity order was fixed before launch and locked to a hash — here is the whole mechanism, in the open." />
         <div className="relative">
           <svg className="hidden md:block absolute left-0 right-0 top-[26px] w-full h-[10px]" preserveAspectRatio="none" viewBox="0 0 100 10" aria-hidden="true">
             <line x1="0" y1="5" x2="100" y2="5" stroke="var(--color-steel)" strokeWidth="1" />
             <line className="arc-dash" x1="0" y1="5" x2="100" y2="5" stroke="var(--color-volt)" strokeWidth="2" />
           </svg>
-          <div className="grid md:grid-cols-5 gap-4">
+          <div className="snap-row flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-5 md:gap-4 md:overflow-visible">
             {DECK_STEPS.map((e, i) => (
-              <Reveal key={e.n} delay={i * 80}>
+              <Reveal key={e.n} delay={i * 80} className="min-w-[76%] max-w-[76%] shrink-0 snap-center md:min-w-0 md:max-w-none">
                 <article className="relative border border-steel/70 bg-ink2/60 p-5 h-full">
                   <span className="stamp inline-grid place-items-center size-[52px] rounded-full border-2 mono tnum font-semibold" style={{ borderColor: e.color, color: e.color }}>{e.n}</span>
                   <h3 className="display text-xl font-bold mt-4">{e.name}</h3>

@@ -13,15 +13,15 @@ const HUE: Record<string, string> = {
 export default function Tiers() {
   return (
     <section id="tiers" className="relative bg-ink2/40 border-y border-steel/50">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="02 / The Rarity" title="Five rarities, one deck" sub={`The deck holds exactly ${num(TIER_TOTAL)} slots. These counts are not estimates — they are the shuffled deck itself, committed on-chain before the first mint.`} />
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {TIERS.map((t, i) => (
             <Reveal key={t.numeral} delay={i * 70}>
-              <article className="h-full border border-steel/70 bg-ink flex flex-col relative overflow-hidden">
+              <article className="h-full border border-steel/70 bg-ink flex flex-row lg:flex-col relative overflow-hidden">
                 <span className="absolute inset-x-0 top-0 h-[3px] z-10" style={{ background: HUE[t.hue] }} />
-                <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-full block bg-black" loading="lazy" decoding="async" />
-                <div className="p-5 flex flex-col flex-1">
+                <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-[96px] shrink-0 object-cover bg-black lg:w-full" loading="lazy" decoding="async" />
+                <div className="p-4 lg:p-5 flex flex-col flex-1">
                   <div className="flex items-baseline justify-between">
                     <span className="serif-it text-3xl" style={{ color: HUE[t.hue] }}>{t.numeral}</span>
                     <span className="mono tnum text-sm text-ash">{t.odds}</span>

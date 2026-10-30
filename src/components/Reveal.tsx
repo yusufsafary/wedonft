@@ -14,7 +14,7 @@ export function SectionHead({ index, title, sub }: { index: string; title: strin
   return (
     <Reveal>
       <div className="mb-6 md:mb-14">
-        <p className="label text-volt mb-3">{index}</p>
+        <p className="label text-volt mb-3"><span className="inline-block w-6 h-[2px] bg-volt align-middle mr-3" aria-hidden="true" />{index}</p>
         <h2 className="display text-4xl md:text-6xl font-extrabold uppercase leading-[0.95] tracking-tight">{title}</h2>
         {sub ? <p className="mt-4 max-w-2xl text-paper2/80 text-base md:text-lg">{sub}</p> : null}
       </div>

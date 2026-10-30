@@ -9,6 +9,7 @@ import Agent from "@/components/Agent";
 import Gate from "@/components/Gate";
 import MintPanel from "@/components/MintPanel";
 import Roadmap from "@/components/Roadmap";
+import MarketBanner from "@/components/MarketBanner";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import MobileNav from "@/components/MobileNav";
@@ -27,6 +28,7 @@ export default function App() {
         <Agent />
         <Gate />
         <MintPanel />
+      <MarketBanner />
         <Roadmap />
         <Faq />
       </main>

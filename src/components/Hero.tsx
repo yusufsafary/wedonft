@@ -47,7 +47,7 @@ export default function Hero() {
   return (
     <section id="top" className="noise gridlines relative overflow-hidden pt-[64px]">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] pt-6 md:pt-20 pb-10 md:pb-14">
-        <div ref={ref} className="reveal-mask is-in">
+        <div ref={ref}>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
             {live && open ? (
               <span className="inline-flex items-center gap-2 border border-live/60 bg-live/10 px-3 py-1.5">
@@ -69,12 +69,13 @@ export default function Hero() {
             Every mint<br />is a <span className="text-volt">draw.</span>
           </p>
         </div>
-        <div className="mt-7 grid gap-5 lg:grid-cols-[1.2fr_1fr] lg:gap-10">
+        <div className="relative mt-7 grid gap-5 lg:grid-cols-[1.2fr_1fr] lg:gap-10">
+          <div className="pointer-events-none absolute -top-10 right-0 size-64 rounded-full bg-volt/10 blur-3xl" aria-hidden="true" />
           <div>
-            <p className="text-base md:text-xl text-paper2/90 max-w-xl">{CONFIG.lede}</p>
+            <p className="text-base md:text-xl text-paper2/90 max-w-xl min-w-0">{CONFIG.lede}</p>
             <div className="snap-row mt-6 flex gap-2 overflow-x-auto snap-x snap-mandatory pb-1 md:grid md:grid-cols-5 md:overflow-visible max-w-xl">
               {TIERS.map((t) => (
-                <figure key={t.name} className="bg-black min-w-[104px] w-[104px] snap-center md:min-w-0 md:w-auto border" style={{ borderColor: `color-mix(in srgb, ${t.color} 45%, transparent)` }}>
+                <figure key={t.name} className="bg-black min-w-[104px] w-[104px] snap-center md:min-w-0 md:w-auto border border-steel/60 transition-transform active:scale-[0.97]">
                   <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-full block" loading="lazy" decoding="async" />
                   <figcaption className="label text-[9px] text-ash text-center py-1.5">
                     <span style={{ color: t.color }}>●</span> {t.name} · {t.odds.replace("1 in ", "1/")}
@@ -113,7 +114,7 @@ export default function Hero() {
                 <p className="label text-[9px] text-ash mb-2">Latest draws — live from chain</p>
                 <div className="flex flex-wrap gap-1.5">
                   {draws.map((d) => (
-                    <span key={d.id} className="mono text-[11px] border px-2 py-1" style={{ borderColor: `color-mix(in srgb, ${TIERS[d.tier].color} 55%, transparent)`, color: TIERS[d.tier].color }}>
+                    <span key={d.id} className="chip-in mono text-[11px] border border-steel/60 px-2 py-1" style={{ color: TIERS[d.tier].color }}>
                       #{d.id} · {TIERS[d.tier].name}
                     </span>
                   ))}

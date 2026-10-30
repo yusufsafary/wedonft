@@ -18,7 +18,7 @@ export default function Tiers() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {TIERS.map((t, i) => (
             <Reveal key={t.numeral} delay={i * 70}>
-              <article className="h-full border border-steel/70 bg-ink flex flex-row lg:flex-col relative overflow-hidden">
+              <article className="h-full border border-steel/70 bg-ink flex flex-row lg:flex-col relative overflow-hidden" style={{ boxShadow: `0 14px 44px -18px ${t.color}` }}>
                 <span className="absolute inset-x-0 top-0 h-[3px] z-10" style={{ background: HUE[t.hue] }} />
                 <img src={t.img} alt={`WEDO ${t.name} Doer`} className="w-[96px] shrink-0 object-cover bg-black lg:w-full" loading="lazy" decoding="async" />
                 <div className="p-3.5 lg:p-5 flex flex-col flex-1">

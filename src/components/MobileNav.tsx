@@ -1,6 +1,7 @@
+import type { ReactNode } from "react";
 import { useActiveSection } from "@/hooks";
 
-const ITEMS = [
+const ITEMS: { id: string; label: string; href?: string; icon: ReactNode }[] = [
   {
     id: "top",
     label: "Home",
@@ -32,6 +33,18 @@ const ITEMS = [
     ),
   },
   {
+    id: "market",
+    label: "Market",
+    href: "/market/",
+    icon: (
+      <g fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
+        <path d="M4 7.5 6.2 3.8h11.6L20 7.5 18.9 9a2.6 2.6 0 0 1-4.9-.6A2.6 2.6 0 0 1 9.1 8.4 2.6 2.6 0 0 1 4.2 9z" />
+        <path d="M5.5 11v9h13v-9" />
+        <path d="M9.8 20v-5h4.4v5" />
+      </g>
+    ),
+  },
+  {
     id: "gate",
     label: "Gate",
     icon: (
@@ -59,11 +72,11 @@ export default function MobileNav() {
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       aria-label="Mobile"
     >
-      <div className="grid grid-cols-5">
+      <div className="grid grid-cols-6">
         {ITEMS.map((it) => (
           <a
             key={it.id}
-            href={`#${it.id}`}
+            href={it.href ?? `#${it.id}`}
             className={`flex flex-col items-center gap-1 py-2.5 transition-colors ${active === it.id ? "text-volt" : "text-ash active:text-paper"}`}
           >
             <svg viewBox="0 0 24 24" className="size-[21px]" aria-hidden="true">{it.icon}</svg>

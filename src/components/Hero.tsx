@@ -45,7 +45,7 @@ export default function Hero() {
   const remaining = minted !== null ? CONFIG.supply.total - minted : null;
 
   return (
-    <section id="top" className="noise gridlines relative overflow-hidden pt-[64px]">
+    <section id="top" className="relative overflow-hidden pt-[64px]">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] pt-6 md:pt-20 pb-10 md:pb-14">
         <div ref={ref}>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">

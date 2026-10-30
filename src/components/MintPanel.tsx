@@ -86,7 +86,7 @@ export default function MintPanel() {
                 <div className="flex justify-between"><span className="text-ash">Reveal</span><span>instant, at mint</span></div>
               </dl>
               <p className="label text-[10px] text-ash mt-6">
-                {live ? <>Contract <span className="mono normal-case">{CONFIG.contract.address}</span></> : <>Predicted contract <span className="mono normal-case">{CONFIG.contract.predicted}</span> — state above reads live from chain the moment it deploys.</>}
+                {live ? <>Contract <span className="mono normal-case break-all">{CONFIG.contract.address}</span></> : <>Predicted contract <span className="mono normal-case break-all">{CONFIG.contract.predicted}</span> — state above reads live from chain the moment it deploys.</>}
               </p>
             </div>
           </Reveal>

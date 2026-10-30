@@ -70,7 +70,6 @@ export default function Hero() {
           </p>
         </div>
         <div className="relative mt-7 grid gap-5 lg:grid-cols-[1.2fr_1fr] lg:gap-10">
-          <div className="pointer-events-none absolute -top-10 right-0 size-64 rounded-full bg-volt/10 blur-3xl" aria-hidden="true" />
           <div>
             <p className="text-base md:text-xl text-paper2/90 max-w-xl min-w-0">{CONFIG.lede}</p>
             <div className="snap-row mt-6 flex gap-2 overflow-x-auto snap-x snap-mandatory pb-1 md:grid md:grid-cols-5 md:overflow-visible max-w-xl">

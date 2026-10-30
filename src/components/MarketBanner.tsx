@@ -9,7 +9,6 @@ export default function MarketBanner() {
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-10 md:py-24">
         <Reveal>
           <a href="/market/" className="group relative block overflow-hidden border border-volt/50 bg-ink2/70 p-5 md:p-10 transition-colors hover:border-volt">
-            <div className="pointer-events-none absolute -right-16 -top-16 size-64 rounded-full bg-volt/10 blur-3xl" aria-hidden="true" />
             <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center">
               <div className="min-w-0 flex-1">
                 <p className="label text-[10px] md:text-[11px] text-volt">
